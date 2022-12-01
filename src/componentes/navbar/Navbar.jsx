@@ -1,8 +1,10 @@
-import React from 'react'
-import CartWidget from './CartWidget'
-
+import React from 'react';
+import CartWidget from './CartWidget';
+import logo from "../../logo.png"
 function Navbar() {
   return (
+    <header>
+        <img src= {logo} alt="tiendamisol" />
     <div>
 <ul class="nav justify-content-end">
   <li class="nav-item">
@@ -18,6 +20,7 @@ function Navbar() {
 </ul>
     <CartWidget/>
     </div>
+    </header>
   )
 }
 
