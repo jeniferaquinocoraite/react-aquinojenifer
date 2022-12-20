@@ -23,7 +23,7 @@ const Item = () => {
   return (
     <div className='row'>
     <div className="col-md-6 offset-md-3 text-center">
-<img src={item.img} className= {"img-fluid"} alt= {item.nombre}/>
+<img style={stilos.img} src={item.img} className= {"img-fluid"} alt= {item.nombre}/>
 <h2>{item.nombre}</h2>
 <p>Talle: {item.talle}</p>
 <p>Precio: {item.precio}</p>
@@ -37,3 +37,5 @@ const Item = () => {
 }
 
 export default Item
+const stilos = {img:{heigt: 150,
+width:200, }}

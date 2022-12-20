@@ -18,29 +18,20 @@ promesa.then ((data)=>{
   setItems (data);   
 })
     }, [id] );
-    /*export const data = new Promise((resolve, reject) => {
-        let condition = true;
-        setTimeout(() => {
-          if (condition) {
-            resolve(productos);
-          } else {
-            reject('salio mal');
-          }
-        }, 3000);
-      });*/
-
+   
       return (
     
-  <div>
+        <div>
 {
 items.map (item =>
+  
 
 <div className="col-md-4 mb-3" key= {item.id}>
 <div className="card text-center"  >
 <Link to= {"/item/" + item.id} className="card-title">{item.nombre} 
 </Link> 
 
-<img src = {item.img} alt="..." className="card-img-top"  />
+<img style= {stilos.img} src = {item.img} alt="..." className="card-img-top"  />
     <p className="card-text">Talle:{item.talle}</p>
     <p className="card-text">Precio: $ {item.precio}</p>
     <Link to= {'/item/'+ item.id} class="btn btn-primary">Ver más</Link>
@@ -50,16 +41,16 @@ items.map (item =>
 </div>
 
 
-
-
-
-
-
-
-
 )
       }
-  </div>)
+  </div>
+  
+  
+  
+  
+  )
     } 
     
   export default Productos
+  const stilos = {img:{heigt: 350,
+    width:400, justifyContent: 'center', margin:15, }}
