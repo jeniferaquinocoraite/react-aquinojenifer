@@ -9,7 +9,7 @@ function Navbar() {
     <div>
 <ul>
   <li style = {style.lista} >
-    <NavLink  style={style.categoria}  to={"categoria/sobrenosotros"}>Sobre Nosotros</NavLink>
+    <NavLink  style={style.categoria}  to={"/sobrenosotras"}>Sobre Nosotras</NavLink>
   </li>
   <li style = {style.lista}  >
     <NavLink  style={style.categoria} to={"categoria/nenas"}>Nenas</NavLink>

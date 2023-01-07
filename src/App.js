@@ -1,31 +1,42 @@
-import './App.css'; 
+import CartContextProvider from './componentes/context/CartContext';
+
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import ItemListConteiner from './componentes/itemlistconteiner/ItemListConteiner';
 import Navbar from './componentes/navbar/Navbar';
-import Productos from './listaDeProductos';
+import ItemListContainer from './componentes/itemlistconteiner/ItemListContainer';
 import Error404 from './Error404';
-import Item from './componentes/itemlistconteiner/Item';
-import SobreNosotros from './componentes/sobrenosotros/SobreNosotros';
+import ItemDetail from './componentes/itemlistconteiner/ItemDetailContainer';
 import { Footer } from './componentes/footer/Footer';
+import Cart from './componentes/Cart';
+import SobreNosotras from './componentes/sobrenosotros/SobreNosotros';
+import Checkout from './componentes/Checkout';
+import Cierre from './componentes/Cierre';
 
 function App() {
-  return (
-          <BrowserRouter>
+  return ( 
+    <CartContextProvider>
+
+    <div>
+    <BrowserRouter>
 
     <Navbar/>
 
     <Routes>
-      <Route path ={"/"}element = {<Productos/>} />
-      <Route path ={"/categoria/sobrenosotros"}element = {<SobreNosotros/>} />
       <Route path ={"*"}element = {<Error404/>} />
-      <Route path ={"/categoria/:id"}element = {<Productos/>} />
-      <Route path ={"/item/:id"}element = {<Item/>} />
+      <Route path ={"/"}element = {<ItemListContainer/>} />
+      <Route path ={"/categoria/:id"}element = {<ItemListContainer/>} />
+      <Route path ={"/sobrenosotras"}element = {<SobreNosotras/>} />
+      <Route path ={"/item/:id"}element = {<ItemDetail/>} />
+      <Route path ={"/cart"}element = {<Cart/>} />
+      <Route path ={"/checkout"}element = {<Checkout/>} />
+      <Route path ={"/cierre/:id"}element = {<Cierre/>} />
 
     </Routes>
-    <ItemListConteiner nombre ={ "Jenifer"} />
     <Footer/>
 
     </BrowserRouter>
+    </div>
+    </CartContextProvider>
+
   );
 }
 

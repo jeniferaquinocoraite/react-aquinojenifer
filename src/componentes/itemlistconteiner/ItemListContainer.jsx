@@ -1,56 +1,28 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ArrayDeProductos from "../json/arraydeproductos";
 import ItemList from "./ItemList";
+import { collection, getDocs, getFirestore, query, where} from "firebase/firestore"
+import Loading from "../loading";
 const  ItemListContainer = ()=> {
-  const [loading, setLoading] = useState(true);
-
+const {id}= useParams ();
   const [items, setItems] = useState ([]);
-  const {id} = useParams();
+  const [cargar, setCargar ]= useState(true);
   useEffect (()=>{
-  
-   
-      const promesa =new Promise ((resolve)=>{
-        setTimeout (()=>{
-          resolve (id ? ArrayDeProductos.filter (item =>item.categoria === id) : ArrayDeProductos);
-         },2000)
-      })
-promesa.then ((data)=>{
-  setItems (data);   
-}
+  const db= getFirestore();
+const itemsCollection = collection (db,"items");
+const q =  id ? query(itemsCollection, where("categoria", "==", id)): itemsCollection;
+getDocs(q).then((snapShot) => { 
+  setItems(snapShot.docs.map((doc) => ({id:doc.id, ...doc.data()} )));
+  setCargar(false);
+});
 
-)
-
-.catch(() => ('hubo un error, intente mas tarde'))
-.finally(() => setLoading(false));
-
-    }, [id] );
+}, [id] ); 
    
       return (
-      
-      <div>
-      {loading ? (
-        <p>Cargando...</p>
-      ) : (
-        <ItemList items={items} />
-        
-      )}
+      <div className= "container py-5">
+        {cargar ? <Loading/> : <ItemList items={items} />}
     </div>
-  );
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-     
-    } 
+  );} 
     
   export default ItemListContainer

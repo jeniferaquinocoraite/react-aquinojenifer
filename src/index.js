@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { initializeApp } from "firebase/app";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const firebaseConfig = {
+  apiKey: "AIzaSyBTPXv5XD0_Vlg2oGmhoc152alVpyyIlSE",
+  authDomain: "tiendaderopa-bfb8d.firebaseapp.com",
+  projectId: "tiendaderopa-bfb8d",
+  storageBucket: "tiendaderopa-bfb8d.appspot.com",
+  messagingSenderId: "543187808957",
+  appId: "1:543187808957:web:477f993e7c302c3c19fdd4"
+};
+
+
+ initializeApp(firebaseConfig);

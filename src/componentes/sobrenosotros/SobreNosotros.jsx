@@ -1,11 +1,11 @@
 import React from 'react'
 import gisel from '../../assets/gisel.jpg'
 import jeni from '../../assets/jeni.jpg'
-function SobreNosotros() {
+function SobreNosotras() {
   return (
 <div>
 <div >
-<h2 >Nosotros</h2>
+<h2 style={stilos.nombre} >Nosotras</h2>
 </div>
 <div style={stilos.contenedor}>
 <div style={stilos.nombre} > 
@@ -24,10 +24,10 @@ function SobreNosotros() {
   )
 }
 
-export default SobreNosotros
+export default SobreNosotras
 const stilos = { nombre: {
-fontFamily: 'cursive',
-color: 'orange',
+fontFamily: 'chewy',
+color: '#f1a012',
 
 display: 'block',
 textAlign: 'center',

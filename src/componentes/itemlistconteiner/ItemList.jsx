@@ -7,29 +7,19 @@ function ItemList({items}) {
         <div>
 {
 items.map (item =>
-  
-
 <div className="col-md-4 mb-3" key= {item.id}>
-<div className="card text-center"  >
+<div className="card text-center"  > 
 <Link to= {"/item/" + item.id} className="card-title">{item.nombre} 
 </Link> 
 
 <img style= {stilos.img} src = {item.img} alt="..." className="card-img-top"  />
     <p className="card-text">Precio: $ {item.precio}</p>
-    <Link to= {'/item/'+ item.id} class="btn btn-primary">Ver más</Link>
-
-
+    <Link to= {'/item/'+ item.id} class="btn btn-warning">Ver más</Link>
   </div>
 </div>
-
-
 )
       }
-  </div>
-  
-  
-  
-  
+  </div> 
   )
   )
 }
